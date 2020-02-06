@@ -1,0 +1,32 @@
+# Write your MySQL query statement that will perform the following task:
+/* 
+Write a SQL query for a report that provides the following information for 
+each person in the Person table, regardless if there is an address for each 
+of those people in a given database: " FirstName, LastName, City, State " .
+   The given database has the following SQL Schema:
+1- Table_1 called "Person_LeetCode" displays: PersonId, FirstName, LastName.
+where 'PersonId' is the primary key column for the table.
+
+2- Table_2 called "Address_LeetCode" displays: AddressId, PersonId, City, State.
+where 'AddressId' is the primary key column for the table.
+
+Hint: No needs to create any tables nor insert any data in the tables for this 
+exercise. We assume that they are all set for us to send our SQL queries. 
+
+ */
+-- ----------------   Solution Approach -------------------------------------------------
+/* Using the 'Outer Join' algorith approach:
+Since the 'PersonId' in the table 'Address_LeetCode' is the foreign key of the 
+table 'Person_LeetCode'; we can join this two table to get the address information
+ of a person. Considering the fact that there might not be an address information for 
+every person, we should use 'Outer Join' instead of the default 'Inner Join'.
+  */
+-- --------------------------------------------------------------------------------------
+
+-- -------------  Beginning of MySQL Query Statement ------------------------------------
+
+ select Firstname, Lastname, City, State 
+ from Person_LeetCode left join Address_LeetCode
+ on Person_LeetCode.PersonId = Address_LeetCode.PersonId;
+ 
+-- -------------------  End of MySQL Query Statement -------------------------------------
